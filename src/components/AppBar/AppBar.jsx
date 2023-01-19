@@ -1,17 +1,41 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import styled from 'styled-components';
+
+import { Nav } from './AppBar.styled';
+
+export const NavItem = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: yellow;
+
+  &.active {
+    background-color: 'blue';
+    color: 'white';
+  }
+
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    color: 'green';
+  }
+`;
 
 const AppBar = () => {
   return (
     <div className="container">
       <div>
-        <nav className="main-nav">
-          <Link to={'/'}>
+        <Nav className="main-nav">
+          <NavItem to={'/'}>
             <button type="button">Home</button>
-          </Link>
-          <Link to={'movies'}>
+          </NavItem>
+          <NavItem to={'movies'}>
             <button type="button">Movies</button>
-          </Link>
-        </nav>
+          </NavItem>
+        </Nav>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
-import Home from './pages/Home.styled';
+import Home from './pages/Home';
 import MovieSearch from './pages/MovieSearch';
 
 // const BASE_URL = 'https://api.themoviedb.org/';
