@@ -3,6 +3,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
+import Home from './pages/Home.styled';
+import MovieSearch from './pages/MovieSearch';
 
 // const BASE_URL = 'https://api.themoviedb.org/';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
@@ -11,7 +13,10 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="movies" element={<MovieSearch />} />
+        </Route>
       </Routes>
     </>
   );

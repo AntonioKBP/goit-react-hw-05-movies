@@ -1,13 +1,12 @@
+import AppBar from 'components/AppBar/AppBar';
+import { Outlet } from 'react-router-dom';
+
 const Layout = () => {
   return (
-    <div className="container">
-      <div>
-        <nav className="main-nav">
-          <button type="button">Home</button>
-          <button type="button">Movies</button>
-        </nav>
-      </div>
-    </div>
+    <>
+      <AppBar />
+      <Outlet />
+    </>
   );
 };
 
