@@ -1,18 +1,52 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const BASE_URL = 'https://api.themoviedb.org/';
-const KEY = '7b0e471f76e5da9e6415f6c271770eca';
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './Layout/Layout';
+
+// const BASE_URL = 'https://api.themoviedb.org/';
+// const KEY = '7b0e471f76e5da9e6415f6c271770eca';
 
 export const App = () => {
-  // https://api.themoviedb.org/3/movie/550?api_key=7b0e471f76e5da9e6415f6c271770eca
-  const fetchApi = async () => {
-    try {
-      const resolved = await axios.get(
-        `${BASE_URL}/3/movie/550?api_key=${KEY}`
-      );
-      console.log(resolved);
-    } catch (error) {}
-  };
-
-  return <div>Started</div>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}></Route>
+      </Routes>
+    </>
+  );
 };
+
+// https://api.themoviedb.org/3/movie/550?api_key=7b0e471f76e5da9e6415f6c271770eca
+// const fetchApi = async () => {
+//   try {
+//     const resolved = await axios.get(
+//       `${BASE_URL}/3/movie/550?api_key=${KEY}`
+//     );
+//     console.log(resolved);
+//   } catch (error) {}
+// };
+// fetchApi();
+
+//   async getPopularMovies() {
+//     try {
+//       const response = await axios.get(
+//         `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${this._page}`
+//       );
+//       console.log(response);
+//       return response;
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+
+//   async getSearchMovies() {
+//     try {
+//       const response = await axios.get(
+//         `${BASE_URL}?${API_KEY}&query=${this.inputValue}&page=${this.page}`
+//       );
+//       return response;
+//     } catch (error) {
+//       console.error(error);
+//     }
+// }
