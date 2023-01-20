@@ -2,14 +2,13 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const BASE_URL = 'https://api.themoviedb.org/';
-const KEY = '7b0e471f76e5da9e6415f6c271770eca';
+// const BASE_URL = 'https://api.themoviedb.org/';
+// const KEY = '7b0e471f76e5da9e6415f6c271770eca';
 
 const Home = () => {
-  const [searchReq, setSearchReq] = useState('');
-  const [filmHits, setFilmHits] = useState([]);
+  // const [searchReq, setSearchReq] = useState('');
+  // const [filmHits, setFilmHits] = useState([]);
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
