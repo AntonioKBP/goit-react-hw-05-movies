@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Home from './pages/Home';
 import MovieSearch from './pages/MovieSearch';
+import NotFoundPage from './NotFoundPage/NotFoundPage';
 
 // const BASE_URL = 'https://api.themoviedb.org/';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
@@ -16,6 +17,8 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="movies" element={<MovieSearch />} />
+          <Route path="movies/:movieId" element={<MovieSearch />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
