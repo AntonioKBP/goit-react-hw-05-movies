@@ -29,26 +29,38 @@ const MoviePage = () => {
     fetchData();
   }, [movieId]);
 
+  const { title, release_date, genres, overview, poster_path } = movie;
+
   return (
     <div>
       <Link to="/">
         <button type="button">Go Back</button>
       </Link>
       <div>
-        <img src="" alt="" />
+        <img src={poster_path} alt="" />
         <h2>
-          {movie.title}({movie.release_date})
+          {title}({release_date})
         </h2>
 
         <p>User Score: 71%</p>
 
         <h3>Overview</h3>
 
-        <p>{movie.overview}</p>
+        <p>{overview}</p>
 
         <h3>Genres</h3>
 
-        <p>{movie.genres}</p>
+        <p>
+          {genres.map(genre => {
+            return `${genre.name} , `;
+          })}
+        </p>
+
+        {/* <p>
+          {genres.map(genre => {
+            return `${genre.name}`;
+          })}
+        </p> */}
       </div>
       <div>
         <p>Additional Information</p>
@@ -66,3 +78,12 @@ const MoviePage = () => {
 };
 
 export default MoviePage;
+
+{
+  /* <p>
+  <b>Languages: </b>$
+  {languages.map(lang => {
+    return `${lang.name}`;
+  })}
+</p>; */
+}
