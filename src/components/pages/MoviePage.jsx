@@ -78,12 +78,3 @@ const MoviePage = () => {
 };
 
 export default MoviePage;
-
-{
-  /* <p>
-  <b>Languages: </b>$
-  {languages.map(lang => {
-    return `${lang.name}`;
-  })}
-</p>; */
-}
