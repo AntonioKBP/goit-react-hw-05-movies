@@ -23,7 +23,7 @@ const MovieSearch = () => {
       // setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=7b0e471f76e5da9e6415f6c271770eca`
+          `https://api.themoviedb.org/3/search/${movies}?api_key=7b0e471f76e5da9e6415f6c271770eca&language=en-US&page=1&include_adult=false`
         );
         setMovies(prev => [...prev, ...data.results]);
 
@@ -36,7 +36,7 @@ const MovieSearch = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [movies]);
 
   return (
     <>

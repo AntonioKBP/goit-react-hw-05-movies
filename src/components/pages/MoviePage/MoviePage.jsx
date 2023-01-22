@@ -7,8 +7,6 @@ import { useState, useEffect } from 'react';
 const MoviePage = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
-  console.log(movieId);
-  console.log(movie);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,29 +37,21 @@ const MoviePage = () => {
       </Link>
       <div>
         <div>
-          <img src={poster_path} alt="" />
+          <img
+            src={poster_path && 'https://image.tmdb.org/t/p/w250' + poster_path}
+            alt={title}
+          />
         </div>
         <div>
           <h2>
-            {title}({release_date})
+            {title}({new Date(release_date).getFullYear()})
           </h2>
-
           <p>User Score: {vote_average}</p>
-
           <h3>Overview</h3>
-
           <p>{overview}</p>
-
           <h3>Genres</h3>
-
           <p>{genres && genres.map(({ name }) => name).join(', ')} </p>
         </div>
-
-        {/* <p>
-          {genres.map(genre => {
-            return `${genre.name}`;
-          })}
-        </p> */}
       </div>
       <div>
         <p>Additional Information</p>
