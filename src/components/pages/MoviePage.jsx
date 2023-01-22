@@ -77,4 +77,4 @@ const MoviePage = () => {
   );
 };
 
-export default MoviePage;
+export default MoviePages;
