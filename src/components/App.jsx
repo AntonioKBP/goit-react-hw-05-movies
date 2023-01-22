@@ -3,9 +3,12 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
-import Home from './pages/Home';
-import MovieSearch from './pages/MovieSearch';
+// import Home from './pages/Home/Home';
+// import MovieSearch from './pages/MovieSearch/MovieSearch';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
+
+import Home from './pages/Home/Home';
+import MovieSearch from './pages/MovieSearch/MovieSearch';
 
 // const BASE_URL = 'https://api.themoviedb.org/';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
