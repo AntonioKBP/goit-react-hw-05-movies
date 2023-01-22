@@ -38,7 +38,7 @@ const MoviePage = () => {
       <div>
         <div>
           <img
-            src={poster_path && 'https://image.tmdb.org/t/p/w250' + poster_path}
+            src={poster_path && 'https://image.tmdb.org/t/p/w300' + poster_path}
             alt={title}
           />
         </div>

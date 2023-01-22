@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
 
 const Home = () => {
-  // const [searchReq, setSearchReq] = useState('');
-  // const [filmHits, setFilmHits] = useState([]);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {

@@ -2,20 +2,22 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import MoviePage from '../MoviePage/MoviePage';
+import { useSearchParams } from 'react-router-dom';
 
 const MovieSearch = () => {
-  const [searchReq, setSearchReq] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get('search') ?? '';
   const [movies, setMovies] = useState([]);
 
   const handleSearch = e => {
-    setSearchReq(e.target.value);
+    const { value } = e.target;
+    setSearchParams({ search: value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSearchReq(searchReq);
-
-    setSearchReq('');
+    const { value } = e.target;
+    setSearchParams({ search: value });
   };
 
   useEffect(() => {
@@ -23,13 +25,13 @@ const MovieSearch = () => {
       // setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://api.themoviedb.org/3/search/${movies}?api_key=7b0e471f76e5da9e6415f6c271770eca&language=en-US&page=1&include_adult=false`
+          `https://api.themoviedb.org/3/search/movie?api_key=7b0e471f76e5da9e6415f6c271770eca&query=${movies}`
         );
         setMovies(prev => [...prev, ...data.results]);
 
         // setImageHits(data);
       } catch (error) {
-        setMovies([]);
+        // setMovies([]);
         // toast.error('Cannot process your request');
       } finally {
         // setIsLoading(false);
@@ -41,15 +43,15 @@ const MovieSearch = () => {
   return (
     <>
       <MoviePage />
-      <input
-        type="text"
-        placeholder="Type here to search..."
-        value={searchReq}
-        onChange={handleSearch}
-      />
-      <button onClick={handleSubmit} type="submit">
-        Search
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Type here to search..."
+          value={searchParams}
+          onChange={handleSearch}
+        />
+        <button type="submit">Search</button>
+      </form>
       <ul>
         <li></li>
       </ul>
