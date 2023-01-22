@@ -29,7 +29,8 @@ const MoviePage = () => {
     fetchData();
   }, [movieId]);
 
-  const { title, release_date, genres, overview, poster_path } = movie;
+  const { title, release_date, genres, overview, poster_path, vote_average } =
+    movie;
 
   return (
     <div>
@@ -42,7 +43,7 @@ const MoviePage = () => {
           {title}({release_date})
         </h2>
 
-        <p>User Score: 71%</p>
+        <p>User Score: {vote_average}</p>
 
         <h3>Overview</h3>
 
@@ -50,11 +51,7 @@ const MoviePage = () => {
 
         <h3>Genres</h3>
 
-        <p>
-          {genres.map(genre => {
-            return `${genre.name} , `;
-          })}
-        </p>
+        <p>{genres && genres.map(({ name }) => name).join(', ')} </p>
 
         {/* <p>
           {genres.map(genre => {
