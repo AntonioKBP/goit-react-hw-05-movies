@@ -6,18 +6,19 @@ import { useSearchParams } from 'react-router-dom';
 
 const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get('search') ?? '';
+  const search = searchParams.get('query') ?? '';
   const [movies, setMovies] = useState([]);
+  const [searchField, setSearchField] = useState('');
 
   const handleSearch = e => {
     const { value } = e.target;
-    setSearchParams({ search: value });
+    setSearchField({ query: value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const { value } = e.target;
-    setSearchParams({ search: value });
+    setSearchParams({ query: searchField });
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const MovieSearch = () => {
       // setIsLoading(true);
       try {
         const { data } = await axios.get(
-          `https://api.themoviedb.org/3/search/movie?api_key=7b0e471f76e5da9e6415f6c271770eca&query=${movies}`
+          `https://api.themoviedb.org/3/search/movie?api_key=7b0e471f76e5da9e6415f6c271770eca&query=${search}`
         );
         setMovies(prev => [...prev, ...data.results]);
 
@@ -43,15 +44,7 @@ const MovieSearch = () => {
   return (
     <>
       <MoviePage />
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Type here to search..."
-          value={searchParams}
-          onChange={handleSearch}
-        />
-        <button type="submit">Search</button>
-      </form>
+
       <ul>
         <li></li>
       </ul>
