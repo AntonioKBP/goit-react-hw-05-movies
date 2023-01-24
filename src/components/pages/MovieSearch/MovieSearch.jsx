@@ -33,7 +33,7 @@ const MovieSearch = () => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, setSearchParams]);
 
   return (
     <>
