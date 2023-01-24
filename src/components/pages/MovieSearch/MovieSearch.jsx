@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import SearchBar from 'components/SearchBar/SearchBar';
 
-import MoviePage from '../MoviePage/MoviePage';
 import { useSearchParams } from 'react-router-dom';
 
 const MovieSearch = () => {
@@ -37,7 +36,6 @@ const MovieSearch = () => {
 
   return (
     <>
-      <MoviePage />
       <SearchBar />
       <ul>
         {movies.map(movie => (
