@@ -37,7 +37,8 @@ const MovieSearch = () => {
 
   return (
     <>
-      {<SearchBar />}
+      <MoviePage />
+      <SearchBar />
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
