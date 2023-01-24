@@ -9,7 +9,8 @@ const SearchBar = () => {
     setSearch(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     setSearchParams(search !== '' ? { query: search } : {});
     setSearch('');
   };
@@ -19,7 +20,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Type here to search..."
-        value={searchField}
+        value={search}
         onChange={onInputChange}
       />
       <button type="submit">Search</button>
