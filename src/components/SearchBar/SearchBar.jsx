@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 const SearchBar = () => {
   const [search, setSearch] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
 
   const onInputChange = e => {

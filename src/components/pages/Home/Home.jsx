@@ -16,7 +16,7 @@ const Home = () => {
           `https://api.themoviedb.org/3/trending/movie/day?api_key=7b0e471f76e5da9e6415f6c271770eca`
         );
         setMovies(prev => [...prev, ...data.results]);
-
+        console.log(data);
         // setImageHits(data);
       } catch (error) {
         setMovies([]);
