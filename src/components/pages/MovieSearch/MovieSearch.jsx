@@ -37,11 +37,11 @@ const MovieSearch = () => {
 
   return (
     <>
-      <SearchBar />
+      {<SearchBar />}
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>
