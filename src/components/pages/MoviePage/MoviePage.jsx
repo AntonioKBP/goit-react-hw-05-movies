@@ -60,7 +60,7 @@ const MoviePage = () => {
           <li>
             <Link to="cast">Cast</Link>
           </li>
-          <Outlet />
+
           <li>
             <Link to="reviews">Reviews</Link>
           </li>
