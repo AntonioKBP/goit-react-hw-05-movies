@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import SearchBar from 'components/SearchBar/SearchBar';
 
@@ -10,6 +10,7 @@ const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('query') ?? '';
   const [movies, setMovies] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     if (!search) {
@@ -40,7 +41,9 @@ const MovieSearch = () => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`${movie.id}`}>{movie.title}</Link>
+            <Link state={{ from: location }} to={`${movie.id}`}>
+              {movie.title}
+            </Link>
           </li>
         ))}
       </ul>

@@ -17,7 +17,7 @@ const Reviews = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=7b0e471f76e5da9e6415f6c271770eca`
         );
         setReviews(data.results);
-        console.log(data.results);
+        // console.log(data.results);
         // setImageHits(data);
       } catch (error) {
         setReviews([]);
@@ -29,18 +29,24 @@ const Reviews = () => {
     fetchData();
   }, [movieId]);
 
-  return (
-    <ul>
-      {reviews.map(review => {
-        return (
-          <li key={review.author}>
-            <b>{review.author}</b>
-            <p>{review.content}</p>
-          </li>
-        );
-      })}
-    </ul>
-  );
+  if (reviews === []) {
+    return <h2>Sorry no one left review yet</h2>;
+  }
+
+  if (reviews !== []) {
+    return (
+      <ul>
+        {reviews.map(review => {
+          return (
+            <li key={review.author}>
+              <b>{review.author}</b>
+              <p>{review.content}</p>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
 };
 
 export default Reviews;

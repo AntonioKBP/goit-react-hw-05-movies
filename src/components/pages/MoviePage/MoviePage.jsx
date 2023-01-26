@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 import { useParams } from 'react-router-dom';
@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 const MoviePage = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +35,7 @@ const MoviePage = () => {
 
   return (
     <div>
-      <Link to="/">
+      <Link to={location.state?.from ?? '/'}>
         <button type="button">Go Back</button>
       </Link>
       <div>
@@ -58,17 +60,23 @@ const MoviePage = () => {
         <p>Additional Information</p>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link state={{ from: location.state?.from }} to="cast">
+              Cast
+            </Link>
           </li>
 
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link state={{ from: location.state?.from }} to="reviews">
+              Reviews
+            </Link>
           </li>
-          <Outlet />
         </ul>
+        <Outlet />
       </div>
     </div>
   );
 };
 
 export default MoviePage;
+
+// state={{ from: location }}
