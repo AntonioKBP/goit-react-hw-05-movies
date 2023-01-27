@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import { FilmList, FilmItem } from './Home.styled';
+
 // const BASE_URL = 'https://api.themoviedb.org/';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
 
@@ -30,15 +32,15 @@ const Home = () => {
   }, []);
 
   return (
-    <ul>
+    <FilmList>
       {movies.map(movie => (
-        <li key={movie.id}>
+        <FilmItem key={movie.id}>
           <Link state={{ from: location }} to={`movies/${movie.id}`}>
             {movie.title}
           </Link>
-        </li>
+        </FilmItem>
       ))}
-    </ul>
+    </FilmList>
   );
 };
 

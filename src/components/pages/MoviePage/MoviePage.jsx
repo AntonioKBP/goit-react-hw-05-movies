@@ -5,6 +5,21 @@ import { Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import {
+  MainContainer,
+  SecondaryContainer,
+  GoBackBtn,
+  FilmPosterContainer,
+  FilmPoster,
+  FilmInformationContainer,
+  FilmTitle,
+  SecondFilmTitle,
+  FilmInfo,
+  AddInfo,
+  AddInfoList,
+  AddInfoItem,
+} from './MoviePage.styled';
+
 const MoviePage = () => {
   const [movie, setMovie] = useState([]);
   const { movieId } = useParams();
@@ -34,46 +49,48 @@ const MoviePage = () => {
     movie;
 
   return (
-    <div>
+    <MainContainer>
       <Link to={location.state?.from ?? '/'}>
-        <button type="button">Go Back</button>
+        <GoBackBtn type="button">Go Back</GoBackBtn>
       </Link>
-      <div>
-        <div>
-          <img
+      <SecondaryContainer>
+        <FilmPosterContainer>
+          <FilmPoster
             src={poster_path && 'https://image.tmdb.org/t/p/w300' + poster_path}
             alt={title}
           />
-        </div>
-        <div>
-          <h2>
+        </FilmPosterContainer>
+        <FilmInformationContainer>
+          <FilmTitle>
             {title}({new Date(release_date).getFullYear()})
-          </h2>
-          <p>User Score: {vote_average}</p>
-          <h3>Overview</h3>
-          <p>{overview}</p>
-          <h3>Genres</h3>
-          <p>{genres && genres.map(({ name }) => name).join(', ')} </p>
-        </div>
-      </div>
+          </FilmTitle>
+          <FilmInfo>User Score: {vote_average}</FilmInfo>
+          <SecondFilmTitle>Overview</SecondFilmTitle>
+          <FilmInfo>{overview}</FilmInfo>
+          <SecondFilmTitle>Genres</SecondFilmTitle>
+          <FilmInfo>
+            {genres && genres.map(({ name }) => name).join(', ')}{' '}
+          </FilmInfo>
+        </FilmInformationContainer>
+      </SecondaryContainer>
       <div>
-        <p>Additional Information</p>
-        <ul>
-          <li>
+        <AddInfo>Additional Information</AddInfo>
+        <AddInfoList>
+          <AddInfoItem>
             <Link state={{ from: location.state?.from }} to="cast">
               Cast
             </Link>
-          </li>
+          </AddInfoItem>
 
-          <li>
+          <AddInfoItem>
             <Link state={{ from: location.state?.from }} to="reviews">
               Reviews
             </Link>
-          </li>
-        </ul>
+          </AddInfoItem>
+        </AddInfoList>
         <Outlet />
       </div>
-    </div>
+    </MainContainer>
   );
 };
 

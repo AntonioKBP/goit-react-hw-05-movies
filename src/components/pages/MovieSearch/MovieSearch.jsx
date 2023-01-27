@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import SearchBar from 'components/SearchBar/SearchBar';
 
 import { useSearchParams } from 'react-router-dom';
+import { FilmList, FilmItem } from '../Home/Home.styled';
 
 const MovieSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,8 +28,8 @@ const MovieSearch = () => {
 
         // setImageHits(data);
       } catch (error) {
-        // setMovies([]);
-        // toast.error('Cannot process your request');
+        setMovies([]);
+        toast.error('Cannot process your request');
       } finally {
         // setIsLoading(false);
       }
@@ -38,15 +40,15 @@ const MovieSearch = () => {
   return (
     <>
       <SearchBar />
-      <ul>
+      <FilmList>
         {movies.map(movie => (
-          <li key={movie.id}>
+          <FilmItem key={movie.id}>
             <Link state={{ from: location }} to={`${movie.id}`}>
               {movie.title}
             </Link>
-          </li>
+          </FilmItem>
         ))}
-      </ul>
+      </FilmList>
       {/* <MoviePage /> */}
     </>
   );
