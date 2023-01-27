@@ -5,11 +5,6 @@ export const SecondaryContainer = styled.div`
   display: flex;
 `;
 export const GoBackBtn = styled.button`
-  /* <!-- HTML !-->
-<button class="button-29" role="button">Button 29</button> */
-
-  /* CSS */
-
   align-items: center;
   appearance: none;
   background-image: radial-gradient(
@@ -43,6 +38,7 @@ export const GoBackBtn = styled.button`
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  margin-top: 10px;
 
   :focus {
     box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
