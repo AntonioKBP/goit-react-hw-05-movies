@@ -7,7 +7,7 @@ export const ReviewItem = styled.li`
   border: 1px solid;
   width: 900px;
   border-radius: 5px;
-  background-color: aquamarine;
+  background-color: #a2bbe8;
   margin-bottom: 5px;
 `;
 
