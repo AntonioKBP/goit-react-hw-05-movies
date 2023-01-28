@@ -34,22 +34,22 @@ const Reviews = () => {
   // if (reviews === []) {
   // }
 
-  if (reviews !== []) {
-    return (
-      <ReviewList>
-        {reviews.map(review => {
+  return (
+    <ReviewList>
+      {reviews.length === 0 ? (
+        <p>We dont have any reviews for this movie yet</p>
+      ) : (
+        reviews.map(review => {
           return (
             <ReviewItem key={review.author}>
               <b>{review.author}</b>
               <p>{review.content}</p>
             </ReviewItem>
           );
-        })}
-      </ReviewList>
-    );
-  } else {
-    return <h2>Sorry no one left review yet</h2>;
-  }
+        })
+      )}
+    </ReviewList>
+  );
 };
 
 export default Reviews;
