@@ -25,8 +25,7 @@ const Cast = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=7b0e471f76e5da9e6415f6c271770eca`
         );
         setCast(data.cast);
-        console.log(data.cast);
-        console.log(data);
+
         // setImageHits(data);
       } catch (error) {
         setCast([]);
