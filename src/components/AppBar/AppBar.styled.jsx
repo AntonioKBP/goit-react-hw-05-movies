@@ -61,5 +61,8 @@ export const NavBtn = styled.button`
 `;
 
 export const NavContainer = styled.div`
-  background-color: aqua;
+  background-color: #a2bbe8;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `;

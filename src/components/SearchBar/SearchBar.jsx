@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
+import { SearchForm, SearchFormInput, SearchFormBtn } from './SearchBar.styled';
 const SearchBar = () => {
   const [search, setSearch] = useState('');
   // eslint-disable-next-line no-unused-vars
@@ -17,15 +17,15 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
+    <SearchForm onSubmit={onSubmit}>
+      <SearchFormInput
         type="text"
-        placeholder="Type here to search..."
+        placeholder="Type movie name to find..."
         value={search}
         onChange={onInputChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <SearchFormBtn type="submit">Search</SearchFormBtn>
+    </SearchForm>
   );
 };
 

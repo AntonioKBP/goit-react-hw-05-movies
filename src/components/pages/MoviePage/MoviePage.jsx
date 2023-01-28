@@ -18,6 +18,7 @@ import {
   AddInfo,
   AddInfoList,
   AddInfoItem,
+  AddInfoContainer,
 } from './MoviePage.styled';
 
 const MoviePage = () => {
@@ -73,7 +74,7 @@ const MoviePage = () => {
           </FilmInfo>
         </FilmInformationContainer>
       </SecondaryContainer>
-      <div>
+      <AddInfoContainer>
         <AddInfo>Additional Information</AddInfo>
         <AddInfoList>
           <AddInfoItem>
@@ -89,7 +90,7 @@ const MoviePage = () => {
           </AddInfoItem>
         </AddInfoList>
         <Outlet />
-      </div>
+      </AddInfoContainer>
     </MainContainer>
   );
 };

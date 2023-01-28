@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const MainContainer = styled.div``;
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 export const SecondaryContainer = styled.div`
   display: flex;
   margin-bottom: 20px;
@@ -8,10 +12,11 @@ export const SecondaryContainer = styled.div`
 export const GoBackBtn = styled.button`
   align-items: center;
   appearance: none;
+  margin-bottom: 10px;
   background-image: radial-gradient(
     100% 100% at 100% 0,
-    #5adaff 0,
-    #5468ff 100%
+    #c0d0d5 0,
+    #6b79e0 100%
   );
   border: 0;
   border-radius: 6px;
@@ -74,7 +79,7 @@ export const FilmInformationContainer = styled.div`
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  background-color: turquoise;
+  background-color: #a2bbe8;
 `;
 export const FilmTitle = styled.h2`
   margin: 0 auto;
@@ -91,12 +96,16 @@ export const FilmInfo = styled.p`
   padding: 5px;
 `;
 export const AddInfo = styled.b`
-  margin-left: 90px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 `;
-export const AddInfoList = styled.ul`
-  margin-left: 10px;
-`;
+export const AddInfoList = styled.ul``;
+
 export const AddInfoItem = styled.ul`
   margin-bottom: 10px;
+`;
+
+export const AddInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

@@ -2,7 +2,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import { FilmList, FilmItem } from './Home.styled';
+import {
+  FilmList,
+  FilmItem,
+  FilmListTitle,
+  FilmListTitleContainer,
+} from './Home.styled';
 
 // const BASE_URL = 'https://api.themoviedb.org/';
 // const KEY = '7b0e471f76e5da9e6415f6c271770eca';
@@ -32,15 +37,18 @@ const Home = () => {
   }, []);
 
   return (
-    <FilmList>
-      {movies.map(movie => (
-        <FilmItem key={movie.id}>
-          <Link state={{ from: location }} to={`movies/${movie.id}`}>
-            {movie.title}
-          </Link>
-        </FilmItem>
-      ))}
-    </FilmList>
+    <FilmListTitleContainer>
+      <FilmListTitle>Trending Now</FilmListTitle>
+      <FilmList>
+        {movies.map(movie => (
+          <FilmItem key={movie.id}>
+            <Link state={{ from: location }} to={`movies/${movie.id}`}>
+              {movie.title}
+            </Link>
+          </FilmItem>
+        ))}
+      </FilmList>
+    </FilmListTitleContainer>
   );
 };
 

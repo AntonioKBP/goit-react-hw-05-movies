@@ -31,9 +31,8 @@ const Reviews = () => {
     fetchData();
   }, [movieId]);
 
-  if (reviews === []) {
-    return <h2>Sorry no one left review yet</h2>;
-  }
+  // if (reviews === []) {
+  // }
 
   if (reviews !== []) {
     return (
@@ -48,6 +47,8 @@ const Reviews = () => {
         })}
       </ReviewList>
     );
+  } else {
+    return <h2>Sorry no one left review yet</h2>;
   }
 };
 

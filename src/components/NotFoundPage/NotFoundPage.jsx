@@ -1,4 +1,4 @@
-import img from '../images/Screenshot_42.png';
+import img from '../images/404.jpg';
 import {
   NotFoundContainer,
   NotFoundText,
@@ -9,7 +9,7 @@ const NotFoundPage = () => {
   return (
     <NotFoundContainer>
       <NotFoundText>Page Not Found 404</NotFoundText>
-      <NotFoundImg src={img} alt="" srcset="" />
+      <NotFoundImg src={img} alt="page not found" />
     </NotFoundContainer>
   );
 };
