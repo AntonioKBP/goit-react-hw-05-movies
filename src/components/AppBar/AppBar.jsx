@@ -1,8 +1,8 @@
-import { Nav, NavItem, NavBtn } from './AppBar.styled';
+import { Nav, NavItem, NavBtn, NavContainer } from './AppBar.styled';
 
 const AppBar = () => {
   return (
-    <div className="container">
+    <NavContainer className="container">
       <div>
         <Nav className="main-nav">
           <NavItem to={'/'}>
@@ -13,7 +13,7 @@ const AppBar = () => {
           </NavItem>
         </Nav>
       </div>
-    </div>
+    </NavContainer>
   );
 };
 

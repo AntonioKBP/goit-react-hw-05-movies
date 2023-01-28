@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div``;
 export const SecondaryContainer = styled.div`
   display: flex;
+  margin-bottom: 20px;
 `;
 export const GoBackBtn = styled.button`
   align-items: center;
@@ -89,6 +90,13 @@ export const FilmInfo = styled.p`
   margin: 0 auto;
   padding: 5px;
 `;
-export const AddInfo = styled.p``;
-export const AddInfoList = styled.ul``;
-export const AddInfoItem = styled.ul``;
+export const AddInfo = styled.b`
+  margin-left: 90px;
+  margin-top: 20px;
+`;
+export const AddInfoList = styled.ul`
+  margin-left: 10px;
+`;
+export const AddInfoItem = styled.ul`
+  margin-bottom: 10px;
+`;

@@ -1,4 +1,4 @@
-import img from '../imageTo delete/Screenshot_42.png';
+import img from '../images/Screenshot_42.png';
 import {
   NotFoundContainer,
   NotFoundText,

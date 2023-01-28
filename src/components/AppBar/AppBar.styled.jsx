@@ -12,49 +12,54 @@ export const NavItem = styled(NavLink)`
 `;
 
 export const NavBtn = styled.button`
-  background-color: #0078d0;
-  border: 0;
-  border-radius: 56px;
-  color: #fff;
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
   cursor: pointer;
-  display: inline-block;
-  font-family: system-ui, -apple-system, system-ui, 'Segoe UI', Roboto, Ubuntu,
-    'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  outline: 0;
-  padding: 16px 21px;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
   position: relative;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: box-shadow 0.15s, transform 0.15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  border-radius: 56px;
 
-  &:before {
-    background-color: initial;
-    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-    border-radius: 125px;
-    content: '';
-    height: 50%;
-    left: 4%;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    transition: all 0.3s;
-    width: 92%;
+  :focus {
+    box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
   }
 
-  &:hover {
-    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
-      rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
-    transform: scale(1.05);
+  :hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
   }
 
-  @media (min-width: 768px) {
-    .button-71 {
-      padding: 16px 48px;
-    }
+  :active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
   }
+`;
+
+export const NavContainer = styled.div`
+  background-color: aqua;
 `;

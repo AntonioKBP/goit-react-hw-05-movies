@@ -2,7 +2,16 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { CastList, CastItem, CastImg, CastName, CastPref } from './Cast.styled';
+import {
+  CastList,
+  CastItem,
+  CastImg,
+  CastName,
+  CastPref,
+  CastInfoContainer,
+} from './Cast.styled';
+
+import noPic from '../../images/noPicImage.jpg';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -35,14 +44,17 @@ const Cast = () => {
           <CastItem key={actor.id}>
             <CastImg
               src={
-                actor.profile_path &&
-                'https://image.tmdb.org/t/p/w300' + actor.profile_path
+                actor.profile_path
+                  ? 'https://image.tmdb.org/t/p/w300' + actor.profile_path
+                  : noPic
               }
               alt={actor.original_name}
             />
-            <CastName>{actor.name}</CastName>
-            <CastPref>as</CastPref>
-            <CastName>{actor.character}</CastName>
+            <CastInfoContainer>
+              <CastName>{actor.name}</CastName>
+              <CastPref>as</CastPref>
+              <CastName>{actor.character}</CastName>
+            </CastInfoContainer>
           </CastItem>
         );
       })}
@@ -51,3 +63,7 @@ const Cast = () => {
 };
 
 export default Cast;
+
+// {
+//   path ? 'https://image.tmdb.org/t/p/w200' + path : img;
+// }

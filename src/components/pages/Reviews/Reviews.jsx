@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import { ReviewList, ReviewItem } from './Reviews.styled';
+
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
@@ -35,16 +37,16 @@ const Reviews = () => {
 
   if (reviews !== []) {
     return (
-      <ul>
+      <ReviewList>
         {reviews.map(review => {
           return (
-            <li key={review.author}>
+            <ReviewItem key={review.author}>
               <b>{review.author}</b>
               <p>{review.content}</p>
-            </li>
+            </ReviewItem>
           );
         })}
-      </ul>
+      </ReviewList>
     );
   }
 };
